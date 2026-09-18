@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WeatherAlert - Locations</title>
+
+    <link rel="stylesheet" href="location.css">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            🌦️ <span>WeatherAlert</span>
+        </div>
+
+        <nav>
+
+            <a href="index.html">
+                🏠 <span>Dashboard</span>
+            </a>
+
+            <a href="alert.html">
+                🚨 <span>Alerts</span>
+            </a>
+
+            <a href="forecast.html">
+                📅 <span>Forecast</span>
+            </a>
+
+            <a href="location.html" class="active">
+                📍 <span>Locations</span>
+            </a>
+
+            <a href="satting.html">
+                ⚙️ <span>Settings</span>
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="main">
+
+        <!-- HEADER -->
+
+        <header class="header">
+
+            <div>
+
+                <h1>My Locations</h1>
+
+                <p>
+                    Manage your favorite weather locations
+                </p>
+
+            </div>
+
+            <div class="header-icon">
+                📍
+            </div>
+
+        </header>
+
+
+        <!-- SEARCH -->
+
+        <section class="search-section">
+
+            <h2>Add New Location</h2>
+
+            <p>
+                Search for a city to add it to your locations.
+            </p>
+
+            <div class="search-box">
+
+                <input
+                    type="text"
+                    id="cityInput"
+                    placeholder="Enter city name..."
+                >
+
+                <button onclick="addLocation()">
+                    + Add Location
+                </button>
+
+            </div>
+
+            <div id="searchMessage"></div>
+
+        </section>
+
+
+        <!-- CURRENT LOCATION -->
+
+        <section class="current-location">
+
+            <div class="current-header">
+
+                <div>
+
+                    <span class="current-label">
+                        CURRENT LOCATION
+                    </span>
+
+                    <h2>
+                        📍 Kolkata, India
+                    </h2>
+
+                </div>
+
+                <span class="live">
+                    ● LIVE
+                </span>
+
+            </div>
+
+
+            <div class="current-weather">
+
+                <div class="weather-main">
+
+                    <span class="weather-icon">
+                        🌤️
+                    </span>
+
+                    <div>
+
+                        <strong>32°C</strong>
+
+                        <p>
+                            Partly Cloudy
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="weather-details">
+
+                    <div>
+                        <span>💧 Humidity</span>
+                        <strong>72%</strong>
+                    </div>
+
+                    <div>
+                        <span>💨 Wind</span>
+                        <strong>18 km/h</strong>
+                    </div>
+
+                    <div>
+                        <span>🌧️ Rain</span>
+                        <strong>40%</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SAVED LOCATIONS -->
+
+        <section class="locations-section">
+
+            <div class="section-header">
+
+                <div>
+
+                    <h2>Saved Locations</h2>
+
+                    <p>
+                        Your favorite weather locations
+                    </p>
+
+                </div>
+
+                <span id="locationCount">
+                    4 Locations
+                </span>
+
+            </div>
+
+
+            <div
+                class="locations-grid"
+                id="locationsGrid"
+            >
+
+                <!-- LOCATION 1 -->
+
+                <div
+                    class="location-card"
+                    data-city="Kolkata"
+                >
+
+                    <div class="card-top">
+
+                        <div>
+
+                            <h3>📍 Kolkata</h3>
+
+                            <p>West Bengal, India</p>
+
+                        </div>
+
+                        <button
+                            class="favorite"
+                            onclick="toggleFavorite(this)"
+                        >
+                            ★
+                        </button>
+
+                    </div>
+
+
+                    <div class="location-weather">
+
+                        <span class="big-icon">
+                            🌤️
+                        </span>
+
+                        <div>
+
+                            <strong>32°C</strong>
+
+                            <p>
+                                Partly Cloudy
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="mini-stats">
+
+                        <span>
+                            💧 72%
+                        </span>
+
+                        <span>
+                            💨 18 km/h
+                        </span>
+
+                        <span>
+                            🌧️ 40%
+                        </span>
+
+                    </div>
+
+
+                    <div class="card-bottom">
+
+                        <span class="status safe">
+                            ● No Major Alerts
+                        </span>
+
+                        <button
+                            onclick="removeLocation(this)"
+                            class="remove-btn"
+                        >
+                            Remove
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- LOCATION 2 -->
+
+                <div
+                    class="location-card"
+                    data-city="Delhi"
+                >
+
+                    <div class="card-top">
+
+                        <div>
+
+                            <h3>📍 Delhi</h3>
+
+                            <p>Delhi, India</p>
+
+                        </div>
+
+                        <button
+                            class="favorite"
+                            onclick="toggleFavorite(this)"
+                        >
+                            ★
+                        </button>
+
+                    </div>
+
+
+                    <div class="location-weather">
+
+                        <span class="big-icon">
+                            ☀️
+                        </span>
+
+                        <div>
+
+                            <strong>36°C</strong>
+
+                            <p>
+                                Sunny
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="mini-stats">
+
+                        <span>
+                            💧 45%
+                        </span>
+
+                        <span>
+                            💨 12 km/h
+                        </span>
+
+                        <span>
+                            🌧️ 10%
+                        </span>
+
+                    </div>
+
+
+                    <div class="card-bottom">
+
+                        <span class="status warning">
+                            ● Heat Advisory
+                        </span>
+
+                        <button
+                            onclick="removeLocation(this)"
+                            class="remove-btn"
+                        >
+                            Remove
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- LOCATION 3 -->
+
+                <div
+                    class="location-card"
+                    data-city="Mumbai"
+                >
+
+                    <div class="card-top">
+
+                        <div>
+
+                            <h3>📍 Mumbai</h3>
+
+                            <p>Maharashtra, India</p>
+
+                        </div>
+
+                        <button
+                            class="favorite"
+                            onclick="toggleFavorite(this)"
+                        >
+                            ★
+                        </button>
+
+                    </div>
+
+
+                    <div class="location-weather">
+
+                        <span class="big-icon">
+                            🌧️
+                        </span>
+
+                        <div>
+
+                            <strong>28°C</strong>
+
+                            <p>
+                                Rainy
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="mini-stats">
+
+                        <span>
+                            💧 85%
+                        </span>
+
+                        <span>
+                            💨 25 km/h
+                        </span>
+
+                        <span>
+                            🌧️ 90%
+                        </span>
+
+                    </div>
+
+
+                    <div class="card-bottom">
+
+                        <span class="status danger">
+                            ● Heavy Rain Alert
+                        </span>
+
+                        <button
+                            onclick="removeLocation(this)"
+                            class="remove-btn"
+                        >
+                            Remove
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- LOCATION 4 -->
+
+                <div
+                    class="location-card"
+                    data-city="Bangalore"
+                >
+
+                    <div class="card-top">
+
+                        <div>
+
+                            <h3>📍 Bangalore</h3>
+
+                            <p>Karnataka, India</p>
+
+                        </div>
+
+                        <button
+                            class="favorite"
+                            onclick="toggleFavorite(this)"
+                        >
+                            ★
+                        </button>
+
+                    </div>
+
+
+                    <div class="location-weather">
+
+                        <span class="big-icon">
+                            🌦️
+                        </span>
+
+                        <div>
+
+                            <strong>26°C</strong>
+
+                            <p>
+                                Light Showers
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="mini-stats">
+
+                        <span>
+                            💧 78%
+                        </span>
+
+                        <span>
+                            💨 14 km/h
+                        </span>
+
+                        <span>
+                            🌧️ 60%
+                        </span>
+
+                    </div>
+
+
+                    <div class="card-bottom">
+
+                        <span class="status safe">
+                            ● No Major Alerts
+                        </span>
+
+                        <button
+                            onclick="removeLocation(this)"
+                            class="remove-btn"
+                        >
+                            Remove
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- LOCATION TIPS -->
+
+        <section class="tips">
+
+            <div class="tip-icon">
+                💡
+            </div>
+
+            <div>
+
+                <h3>Location Tip</h3>
+
+                <p>
+                    Add your frequently visited cities to
+                    quickly monitor their weather and receive
+                    important weather alerts.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="locations.js"></script>
+
+</body>
+
+</html>

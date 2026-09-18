@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WeatherAlert - Alerts</title>
+
+    <link rel="stylesheet" href="alert.css">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            🌦️ <span>WeatherAlert</span>
+        </div>
+
+        <nav>
+            <a href="index.html">🏠 Dashboard</a>
+            <a href="alert.html" class="active">🚨 Alerts</a>
+            <a href="forecast.html">📅 Forecast</a>
+            <a href="location.html">📍 Locations</a>
+            <a href="satting.html">⚙️ Settings</a>
+        </nav>
+
+    </aside>
+
+
+    <!-- MAIN -->
+    <main class="main">
+
+        <!-- HEADER -->
+        <header class="page-header">
+
+            <div>
+                <h1>Weather Alerts</h1>
+
+                <p>
+                    Monitor active and previous weather warnings
+                </p>
+            </div>
+
+            <button
+                class="notification-btn"
+                onclick="markAllRead()">
+                🔔 Mark all as read
+            </button>
+
+        </header>
+
+
+        <!-- ALERT SUMMARY -->
+        <section class="summary-grid">
+
+            <div class="summary-card danger-card">
+
+                <div class="summary-icon">
+                    🔴
+                </div>
+
+                <div>
+                    <p>Critical Alerts</p>
+                    <h2 id="criticalCount">2</h2>
+                </div>
+
+            </div>
+
+
+            <div class="summary-card warning-card">
+
+                <div class="summary-icon">
+                    🟠
+                </div>
+
+                <div>
+                    <p>Warnings</p>
+                    <h2 id="warningCount">3</h2>
+                </div>
+
+            </div>
+
+
+            <div class="summary-card advisory-card">
+
+                <div class="summary-icon">
+                    🟡
+                </div>
+
+                <div>
+                    <p>Advisories</p>
+                    <h2 id="advisoryCount">2</h2>
+                </div>
+
+            </div>
+
+
+            <div class="summary-card safe-card">
+
+                <div class="summary-icon">
+                    🟢
+                </div>
+
+                <div>
+                    <p>Resolved</p>
+                    <h2 id="resolvedCount">5</h2>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FILTER -->
+        <section class="filter-section">
+
+            <div class="filter-title">
+                <h2>Alert Center</h2>
+                <span id="alertCount">7 alerts</span>
+            </div>
+
+            <div class="filters">
+
+                <button
+                    class="filter active"
+                    onclick="filterAlerts('all', this)">
+                    All
+                </button>
+
+                <button
+                    class="filter"
+                    onclick="filterAlerts('critical', this)">
+                    🔴 Critical
+                </button>
+
+                <button
+                    class="filter"
+                    onclick="filterAlerts('warning', this)">
+                    🟠 Warning
+                </button>
+
+                <button
+                    class="filter"
+                    onclick="filterAlerts('advisory', this)">
+                    🟡 Advisory
+                </button>
+
+                <button
+                    class="filter"
+                    onclick="filterAlerts('resolved', this)">
+                    🟢 Resolved
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ALERT LIST -->
+        <section class="alert-list" id="alertList">
+
+
+            <!-- CRITICAL ALERT -->
+            <article
+                class="alert-item critical"
+                data-type="critical">
+
+                <div class="alert-icon">
+                    ⛈️
+                </div>
+
+                <div class="alert-details">
+
+                    <div class="alert-heading">
+
+                        <h3>Severe Thunderstorm Warning</h3>
+
+                        <span class="badge critical-badge">
+                            CRITICAL
+                        </span>
+
+                    </div>
+
+                    <p>
+                        Severe thunderstorms with strong winds
+                        and heavy rainfall are expected in your
+                        area.
+                    </p>
+
+                    <div class="alert-meta">
+
+                        <span>📍 Kolkata</span>
+
+                        <span>🕐 10 minutes ago</span>
+
+                        <span>⏱️ Until 3:30 PM</span>
+
+                    </div>
+
+                </div>
+
+                <button
+                    class="details-btn"
+                    onclick="showDetails('Severe Thunderstorm Warning')">
+                    Details
+                </button>
+
+            </article>
+
+
+            <!-- HEAT ALERT -->
+            <article
+                class="alert-item critical"
+                data-type="critical">
+
+                <div class="alert-icon">
+                    🔥
+                </div>
+
+                <div class="alert-details">
+
+                    <div class="alert-heading">
+
+                        <h3>Extreme Heat Warning</h3>
+
+                        <span class="badge critical-badge">
+                            CRITICAL
+                        </span>
+
+                    </div>
+
+                    <p>
+                        Temperature may reach 41°C today.
+                        Stay hydrated and avoid prolonged
+                        outdoor activity.
+                    </p>
+
+                    <div class="alert-meta">
+
+                        <span>📍 Kolkata</span>
+
+                        <span>🕐 25 minutes ago</span>
+
+                        <span>⏱️ Until 5:00 PM</span>
+
+                    </div>
+
+                </div>
+
+                <button
+                    class="details-btn"
+                    onclick="showDetails('Extreme Heat Warning')">
+                    Details
+                </button>
+
+            </article>
+
+
+            <!-- RAIN WARNING -->
+            <article
+                class="alert-item warning"
+                data-type="warning">
+
+                <div class="alert-icon">
+                    🌧️
+                </div>
+
+                <div class="alert-details">
+
+                    <div class="alert-heading">
+
+                        <h3>Heavy Rain Expected</h3>
+
+                        <span class="badge warning-badge">
+                            WARNING
+                        </span>
+
+                    </div>
+
+                    <p>
+                        Heavy rainfall is expected within the
+                        next two hours.
+                    </p>
+
+                    <div class="alert-meta">
+
+                        <span>📍 Kolkata</span>
+
+                        <span>🕐 1 hour ago</span>
+
+                        <span>⏱️ 2:00 PM - 4:00 PM</span>
+
+                    </div>
+
+                </div>
+
+                <button
+                    class="details-btn"
+                    onclick="showDetails('Heavy Rain Expected')">
+                    Details
+                </button>
+
+            </article>
+
+
+            <!-- WIND WARNING -->
+            <article
+                class="alert-item warning"
+                data-type="warning">
+
+                <div class="alert-icon">
+                    💨
+                </div>
+
+                <div class="alert-details">
+
+                    <div class="alert-heading">
+
+                        <h3>Strong Wind Advisory</h3>
+
+                        <span class="badge warning-badge">
+                            WARNING
+                        </span>
+
+                    </div>
+
+                    <p>
+                        Wind speeds may reach 65 km/h.
+                        Secure loose outdoor objects.
+                    </p>
+
+                    <div class="alert-meta">
+
+                        <span>📍 Kolkata</span>
+
+                        <span>🕐 2 hours ago</span>
+
+                        <span>⏱️ Until 6:00 PM</span>
+
+                    </div>
+
+                </div>
+
+                <button
+                    class="details-btn"
+                    onclick="showDetails('Strong Wind Advisory')">
+                    Details
+                </button>
+
+            </article>
+
+
+            <!-- UV ADVISORY -->
+            <article
+                class="alert-item advisory"
+                data-type="advisory">
+
+                <div class="alert-icon">
+                    ☀️
+                </div>
+
+                <div class="alert-details">
+
+                    <div class="alert-heading">
+
+                        <h3>High UV Index</h3>
+
+                        <span class="badge advisory-badge">
+                            ADVISORY
+                        </span>
+
+                    </div>
+
+                    <p>
+                        UV levels are expected to reach 8.
+                        Consider using sun protection.
+                    </p>
+
+                    <div class="alert-meta">
+
+                        <span>📍 Kolkata</span>
+
+                        <span>🕐 3 hours ago</span>
+
+                    </div>
+
+                </div>
+
+                <button
+                    class="details-btn"
+                    onclick="showDetails('High UV Index')">
+                    Details
+                </button>
+
+            </article>
+
+
+            <!-- RESOLVED -->
+            <article
+                class="alert-item resolved"
+                data-type="resolved">
+
+                <div class="alert-icon">
+                    🌧️
+                </div>
+
+                <div class="alert-details">
+
+                    <div class="alert-heading">
+
+                        <h3>Rainfall Warning</h3>
+
+                        <span class="badge resolved-badge">
+                            RESOLVED
+                        </span>
+
+                    </div>
+
+                    <p>
+                        The previous rainfall warning has
+                        now expired.
+                    </p>
+
+                    <div class="alert-meta">
+
+                        <span>📍 Kolkata</span>
+
+                        <span>🕐 Yesterday</span>
+
+                    </div>
+
+                </div>
+
+                <button
+                    class="details-btn"
+                    onclick="showDetails('Rainfall Warning')">
+                    Details
+                </button>
+
+            </article>
+
+        </section>
+
+    </main>
+
+
+    <!-- MODAL -->
+    <div class="modal" id="detailsModal">
+
+        <div class="modal-box">
+
+            <button
+                class="close-btn"
+                onclick="closeDetails()">
+                ✕
+            </button>
+
+            <div class="modal-icon">
+                🚨
+            </div>
+
+            <h2 id="modalTitle">
+                Weather Alert
+            </h2>
+
+            <p id="modalDescription">
+                Alert information.
+            </p>
+
+            <div class="safety-box">
+
+                <h3>Safety Recommendations</h3>
+
+                <ul>
+                    <li>Stay indoors when possible.</li>
+                    <li>Monitor weather updates.</li>
+                    <li>Avoid unnecessary travel.</li>
+                    <li>Keep your phone charged.</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="alerts.js"></script>
+
+</body>
+
+</html>

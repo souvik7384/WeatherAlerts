@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherAlert - Forecast</title>
+    <link rel="stylesheet" href="forecast.css">
+</head>
+
+<body>
+
+<aside class="sidebar">
+
+    <div class="logo">🌦️ WeatherAlert</div>
+
+    <nav>
+        <a href="index.html">🏠 Dashboard</a>
+        <a href="alert.html">🚨 Alerts</a>
+        <a href="forecast.html" class="active">📅 Forecast</a>
+        <a href="location.html">📍 Locations</a>
+        <a href="satting.html">⚙️ Settings</a>
+    </nav>
+
+</aside>
+
+
+<main class="main">
+
+    <header class="header">
+
+        <div>
+            <h1>Weather Forecast</h1>
+            <p>Check upcoming weather conditions</p>
+        </div>
+
+        <div class="search">
+            <input
+                type="text"
+                id="cityInput"
+                placeholder="Search city..."
+            >
+            <button onclick="searchCity()">🔍</button>
+        </div>
+
+    </header>
+
+
+    <section class="location">
+        📍 <strong id="cityName">Kolkata, India</strong>
+    </section>
+
+
+    <!-- TODAY -->
+    <section class="today-card">
+
+        <div class="today-info">
+
+            <p>Today's Forecast</p>
+
+            <h2 id="todayCondition">
+                Partly Cloudy
+            </h2>
+
+            <div class="today-temp">
+                <span id="todayTemp">32</span>°C
+            </div>
+
+            <p>
+                Feels like
+                <strong id="feelsLike">35°C</strong>
+            </p>
+
+        </div>
+
+        <div class="today-icon">
+            🌤️
+        </div>
+
+        <div class="today-stats">
+
+            <div>
+                💧
+                <span>Humidity</span>
+                <strong id="humidity">72%</strong>
+            </div>
+
+            <div>
+                🌧️
+                <span>Rain</span>
+                <strong id="rain">60%</strong>
+            </div>
+
+            <div>
+                💨
+                <span>Wind</span>
+                <strong id="wind">18 km/h</strong>
+            </div>
+
+            <div>
+                ☀️
+                <span>UV Index</span>
+                <strong id="uv">7</strong>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- HOURLY -->
+    <section class="section">
+
+        <div class="section-title">
+            <h2>Hourly Forecast</h2>
+            <span>Next 24 Hours</span>
+        </div>
+
+        <div class="hourly-container" id="hourlyForecast">
+
+            <div class="hour active">
+                <p>Now</p>
+                <span>🌤️</span>
+                <strong>32°</strong>
+                <small>60%</small>
+            </div>
+
+            <div class="hour">
+                <p>11 AM</p>
+                <span>☀️</span>
+                <strong>33°</strong>
+                <small>20%</small>
+            </div>
+
+            <div class="hour">
+                <p>12 PM</p>
+                <span>🌤️</span>
+                <strong>33°</strong>
+                <small>30%</small>
+            </div>
+
+            <div class="hour">
+                <p>1 PM</p>
+                <span>🌧️</span>
+                <strong>32°</strong>
+                <small>65%</small>
+            </div>
+
+            <div class="hour">
+                <p>2 PM</p>
+                <span>🌧️</span>
+                <strong>30°</strong>
+                <small>80%</small>
+            </div>
+
+            <div class="hour">
+                <p>3 PM</p>
+                <span>⛈️</span>
+                <strong>29°</strong>
+                <small>90%</small>
+            </div>
+
+            <div class="hour">
+                <p>4 PM</p>
+                <span>🌧️</span>
+                <strong>28°</strong>
+                <small>85%</small>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- 7 DAY -->
+    <section class="section">
+
+        <div class="section-title">
+            <h2>7-Day Forecast</h2>
+            <span>Weekly Weather</span>
+        </div>
+
+        <div class="weekly-card" id="weeklyForecast">
+
+            <div class="day today">
+                <div>
+                    <strong>Today</strong>
+                    <small>Friday</small>
+                </div>
+
+                <span>🌤️</span>
+
+                <div class="condition">
+                    Partly Cloudy
+                </div>
+
+                <div class="rain">
+                    🌧️ 40%
+                </div>
+
+                <strong>32° / 25°</strong>
+            </div>
+
+
+            <div class="day">
+
+                <div>
+                    <strong>Saturday</strong>
+                    <small>Sep 19</small>
+                </div>
+
+                <span>🌧️</span>
+
+                <div class="condition">
+                    Rainy
+                </div>
+
+                <div class="rain">
+                    🌧️ 80%
+                </div>
+
+                <strong>30° / 24°</strong>
+
+            </div>
+
+
+            <div class="day">
+
+                <div>
+                    <strong>Sunday</strong>
+                    <small>Sep 20</small>
+                </div>
+
+                <span>🌦️</span>
+
+                <div class="condition">
+                    Showers
+                </div>
+
+                <div class="rain">
+                    🌧️ 60%
+                </div>
+
+                <strong>31° / 24°</strong>
+
+            </div>
+
+
+            <div class="day">
+
+                <div>
+                    <strong>Monday</strong>
+                    <small>Sep 21</small>
+                </div>
+
+                <span>⛈️</span>
+
+                <div class="condition">
+                    Thunderstorm
+                </div>
+
+                <div class="rain">
+                    🌧️ 90%
+                </div>
+
+                <strong>28° / 23°</strong>
+
+            </div>
+
+
+            <div class="day">
+
+                <div>
+                    <strong>Tuesday</strong>
+                    <small>Sep 22</small>
+                </div>
+
+                <span>☀️</span>
+
+                <div class="condition">
+                    Sunny
+                </div>
+
+                <div class="rain">
+                    🌧️ 10%
+                </div>
+
+                <strong>33° / 25°</strong>
+
+            </div>
+
+
+            <div class="day">
+
+                <div>
+                    <strong>Wednesday</strong>
+                    <small>Sep 23</small>
+                </div>
+
+                <span>🌤️</span>
+
+                <div class="condition">
+                    Mostly Cloudy
+                </div>
+
+                <div class="rain">
+                    🌧️ 30%
+                </div>
+
+                <strong>32° / 25°</strong>
+
+            </div>
+
+
+            <div class="day">
+
+                <div>
+                    <strong>Thursday</strong>
+                    <small>Sep 24</small>
+                </div>
+
+                <span>☀️</span>
+
+                <div class="condition">
+                    Sunny
+                </div>
+
+                <div class="rain">
+                    🌧️ 5%
+                </div>
+
+                <strong>34° / 26°</strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- WEATHER DETAILS -->
+    <section class="details-grid">
+
+        <div class="details-card">
+
+            <h2>Temperature</h2>
+
+            <div class="chart">
+
+                <div class="bar" style="height:70%">
+                    <span>32°</span>
+                </div>
+
+                <div class="bar" style="height:80%">
+                    <span>34°</span>
+                </div>
+
+                <div class="bar" style="height:65%">
+                    <span>30°</span>
+                </div>
+
+                <div class="bar" style="height:55%">
+                    <span>28°</span>
+                </div>
+
+                <div class="bar" style="height:78%">
+                    <span>33°</span>
+                </div>
+
+            </div>
+
+            <div class="chart-labels">
+                <span>Today</span>
+                <span>Sat</span>
+                <span>Sun</span>
+                <span>Mon</span>
+                <span>Tue</span>
+            </div>
+
+        </div>
+
+
+        <div class="details-card">
+
+            <h2>Weather Summary</h2>
+
+            <div class="detail-row">
+                <span>🌡️ Average Temperature</span>
+                <strong>30°C</strong>
+            </div>
+
+            <div class="detail-row">
+                <span>🌧️ Rain Probability</span>
+                <strong>60%</strong>
+            </div>
+
+            <div class="detail-row">
+                <span>💨 Average Wind</span>
+                <strong>20 km/h</strong>
+            </div>
+
+            <div class="detail-row">
+                <span>💧 Humidity</span>
+                <strong>72%</strong>
+            </div>
+
+            <div class="detail-row">
+                <span>☀️ UV Index</span>
+                <strong>7 High</strong>
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<script src="forecast.js"></script>
+
+</body>
+</html>

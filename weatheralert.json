@@ -1,0 +1,296 @@
+{
+  "app": {
+    "name": "WeatherAlert",
+    "version": "1.0.0",
+    "description": "Weather monitoring and alert application",
+    "theme": "light",
+    "defaultPage": "dashboard"
+  },
+
+  "navigation": [
+    {
+      "id": "dashboard",
+      "title": "Dashboard",
+      "icon": "dashboard",
+      "path": "/dashboard"
+    },
+    {
+      "id": "alerts",
+      "title": "Alerts",
+      "icon": "warning",
+      "path": "/alerts"
+    },
+    {
+      "id": "forecast",
+      "title": "Forecast",
+      "icon": "cloud",
+      "path": "/forecast"
+    },
+    {
+      "id": "locations",
+      "title": "Locations",
+      "icon": "location",
+      "path": "/locations"
+    },
+    {
+      "id": "settings",
+      "title": "Settings",
+      "icon": "settings",
+      "path": "/settings"
+    }
+  ],
+
+  "dashboard": {
+    "title": "Weather Dashboard",
+    "location": "Kolkata",
+    "currentWeather": {
+      "temperature": 29,
+      "feelsLike": 32,
+      "condition": "Partly Cloudy",
+      "humidity": 72,
+      "windSpeed": 14,
+      "windDirection": "NW",
+      "pressure": 1008,
+      "visibility": 8,
+      "uvIndex": 6
+    },
+
+    "today": {
+      "high": 34,
+      "low": 26,
+      "rainProbability": 60
+    },
+
+    "quickStats": [
+      {
+        "title": "Temperature",
+        "value": "29°C",
+        "icon": "temperature"
+      },
+      {
+        "title": "Humidity",
+        "value": "72%",
+        "icon": "humidity"
+      },
+      {
+        "title": "Wind",
+        "value": "14 km/h",
+        "icon": "wind"
+      },
+      {
+        "title": "UV Index",
+        "value": "6",
+        "icon": "sun"
+      }
+    ],
+
+    "activeAlerts": 2
+  },
+
+  "alerts": {
+    "title": "Weather Alerts",
+
+    "summary": {
+      "total": 4,
+      "active": 2,
+      "resolved": 2
+    },
+
+    "items": [
+      {
+        "id": "ALT001",
+        "type": "heavy_rain",
+        "title": "Heavy Rain Warning",
+        "description": "Heavy rainfall is expected in your area.",
+        "severity": "high",
+        "location": "Kolkata",
+        "startTime": "2026-09-18T15:00:00",
+        "endTime": "2026-09-18T20:00:00",
+        "status": "active"
+      },
+      {
+        "id": "ALT002",
+        "type": "strong_wind",
+        "title": "Strong Wind Alert",
+        "description": "Strong winds may occur during the evening.",
+        "severity": "medium",
+        "location": "Kolkata",
+        "startTime": "2026-09-18T17:00:00",
+        "endTime": "2026-09-18T22:00:00",
+        "status": "active"
+      },
+      {
+        "id": "ALT003",
+        "type": "high_temperature",
+        "title": "High Temperature",
+        "description": "Temperature exceeded the configured threshold.",
+        "severity": "medium",
+        "location": "Delhi",
+        "startTime": "2026-09-17T12:00:00",
+        "endTime": "2026-09-17T18:00:00",
+        "status": "resolved"
+      },
+      {
+        "id": "ALT004",
+        "type": "rain",
+        "title": "Rain Alert",
+        "description": "Moderate rainfall was detected.",
+        "severity": "low",
+        "location": "Mumbai",
+        "startTime": "2026-09-16T14:00:00",
+        "endTime": "2026-09-16T18:00:00",
+        "status": "resolved"
+      }
+    ]
+  },
+
+  "forecast": {
+    "title": "Weather Forecast",
+    "location": "Kolkata",
+
+    "daily": [
+      {
+        "date": "2026-09-18",
+        "day": "Today",
+        "condition": "Partly Cloudy",
+        "icon": "partly_cloudy",
+        "temperature": {
+          "high": 34,
+          "low": 26
+        },
+        "rainProbability": 60,
+        "humidity": 72,
+        "windSpeed": 14
+      },
+      {
+        "date": "2026-09-19",
+        "day": "Saturday",
+        "condition": "Thunderstorms",
+        "icon": "thunderstorm",
+        "temperature": {
+          "high": 32,
+          "low": 25
+        },
+        "rainProbability": 80,
+        "humidity": 78,
+        "windSpeed": 18
+      },
+      {
+        "date": "2026-09-20",
+        "day": "Sunday",
+        "condition": "Rain",
+        "icon": "rain",
+        "temperature": {
+          "high": 31,
+          "low": 25
+        },
+        "rainProbability": 75,
+        "humidity": 80,
+        "windSpeed": 15
+      },
+      {
+        "date": "2026-09-21",
+        "day": "Monday",
+        "condition": "Cloudy",
+        "icon": "cloudy",
+        "temperature": {
+          "high": 33,
+          "low": 26
+        },
+        "rainProbability": 45,
+        "humidity": 70,
+        "windSpeed": 12
+      },
+      {
+        "date": "2026-09-22",
+        "day": "Tuesday",
+        "condition": "Sunny",
+        "icon": "sunny",
+        "temperature": {
+          "high": 35,
+          "low": 27
+        },
+        "rainProbability": 20,
+        "humidity": 62,
+        "windSpeed": 10
+      }
+    ]
+  },
+
+  "locations": {
+    "title": "My Locations",
+
+    "items": [
+      {
+        "id": "LOC001",
+        "name": "Kolkata",
+        "country": "India",
+        "temperature": 29,
+        "condition": "Partly Cloudy",
+        "isDefault": true,
+        "isFavorite": true
+      },
+      {
+        "id": "LOC002",
+        "name": "Delhi",
+        "country": "India",
+        "temperature": 33,
+        "condition": "Sunny",
+        "isDefault": false,
+        "isFavorite": true
+      },
+      {
+        "id": "LOC003",
+        "name": "Mumbai",
+        "country": "India",
+        "temperature": 28,
+        "condition": "Rain",
+        "isDefault": false,
+        "isFavorite": true
+      },
+      {
+        "id": "LOC004",
+        "name": "Bangalore",
+        "country": "India",
+        "temperature": 24,
+        "condition": "Cloudy",
+        "isDefault": false,
+        "isFavorite": false
+      }
+    ]
+  },
+
+  "settings": {
+    "profile": {
+      "name": "John Doe",
+      "email": "john@example.com"
+    },
+
+    "weatherPreferences": {
+      "temperatureUnit": "celsius",
+      "windSpeedUnit": "kmh",
+      "defaultLocation": "Kolkata"
+    },
+
+    "notifications": {
+      "weatherAlerts": true,
+      "heavyRainAlerts": true,
+      "strongWindAlerts": true,
+      "extremeTemperatureAlerts": true,
+      "dailyForecast": false
+    },
+
+    "alertThresholds": {
+      "highTemperature": 40,
+      "lowTemperature": 10,
+      "rainProbability": 70,
+      "windSpeed": 50,
+      "uvIndex": 8
+    },
+
+    "appearance": {
+      "theme": "light",
+      "language": "en"
+    }
+  }
+}

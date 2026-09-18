@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WeatherAlert-setting</title>
+
+    <link rel="stylesheet" href="satting.css">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            🌦️ <span>WeatherAlert</span>
+        </div>
+
+        <nav>
+
+            <a href="index.html">
+                🏠 <span>Dashboard</span>
+            </a>
+
+            <a href="alert.html">
+                🚨 <span>Alerts</span>
+            </a>
+
+            <a href="forecast.html">
+                📅 <span>Forecast</span>
+            </a>
+
+            <a href="location.html">
+                📍 <span>Locations</span>
+            </a>
+
+            <a href="satting.html" class="active">
+                ⚙️ <span>Settings</span>
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="main">
+
+        <!-- HEADER -->
+
+        <header class="header">
+
+            <div>
+                <h1>Settings</h1>
+
+                <p>
+                    Customize your WeatherGuard experience
+                </p>
+            </div>
+
+            <div class="header-icon">
+                ⚙️
+            </div>
+
+        </header>
+
+
+        <!-- PROFILE -->
+
+        <section class="settings-card">
+
+            <div class="card-title">
+
+                <div class="title-icon blue">
+                    👤
+                </div>
+
+                <div>
+                    <h2>Profile</h2>
+
+                    <p>
+                        Manage your personal information
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="profile">
+
+                <div class="avatar">
+                    JD
+                </div>
+
+                <div class="profile-info">
+
+                    <h3 id="profileName">
+                        John Doe
+                    </h3>
+
+                    <p>
+                        WeatherGuard User
+                    </p>
+
+                </div>
+
+                <button
+                    class="outline-btn"
+                    onclick="editProfile()"
+                >
+                    Edit Profile
+                </button>
+
+            </div>
+
+
+            <div class="form-grid">
+
+                <div class="form-group">
+
+                    <label>Full Name</label>
+
+                    <input
+                        type="text"
+                        id="nameInput"
+                        value="John Doe"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Email</label>
+
+                    <input
+                        type="email"
+                        value="john@example.com"
+                    >
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- WEATHER SETTINGS -->
+
+        <section class="settings-card">
+
+            <div class="card-title">
+
+                <div class="title-icon green">
+                    🌡️
+                </div>
+
+                <div>
+                    <h2>Weather Preferences</h2>
+
+                    <p>
+                        Choose how weather information is displayed
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="setting-row">
+
+                <div>
+                    <h3>Temperature Unit</h3>
+
+                    <p>
+                        Select your preferred temperature unit
+                    </p>
+                </div>
+
+                <select id="temperatureUnit">
+
+                    <option value="celsius">
+                        Celsius (°C)
+                    </option>
+
+                    <option value="fahrenheit">
+                        Fahrenheit (°F)
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="setting-row">
+
+                <div>
+                    <h3>Wind Speed Unit</h3>
+
+                    <p>
+                        Choose how wind speed is displayed
+                    </p>
+                </div>
+
+                <select id="windUnit">
+
+                    <option value="kmh">
+                        km/h
+                    </option>
+
+                    <option value="mph">
+                        mph
+                    </option>
+
+                    <option value="ms">
+                        m/s
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="setting-row">
+
+                <div>
+                    <h3>Default Location</h3>
+
+                    <p>
+                        Location shown when you open the dashboard
+                    </p>
+                </div>
+
+                <select id="defaultLocation">
+
+                    <option>Kolkata</option>
+                    <option>Delhi</option>
+                    <option>Mumbai</option>
+                    <option>Bangalore</option>
+
+                </select>
+
+            </div>
+
+        </section>
+
+
+        <!-- NOTIFICATIONS -->
+
+        <section class="settings-card">
+
+            <div class="card-title">
+
+                <div class="title-icon orange">
+                    🔔
+                </div>
+
+                <div>
+                    <h2>Notifications</h2>
+
+                    <p>
+                        Control weather alert notifications
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="setting-row">
+
+                <div>
+                    <h3>Weather Alerts</h3>
+
+                    <p>
+                        Receive important weather warnings
+                    </p>
+                </div>
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        id="weatherAlerts"
+                        checked
+                    >
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+
+            <div class="setting-row">
+
+                <div>
+                    <h3>Heavy Rain Alerts</h3>
+
+                    <p>
+                        Get notified when heavy rain is expected
+                    </p>
+                </div>
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        id="rainAlerts"
+                        checked
+                    >
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+
+            <div class="setting-row">
+
+                <div>
+                    <h3>Extreme Temperature</h3>
+
+                    <p>
+                        Receive alerts for extreme temperatures
+                    </p>
+                </div>
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        id="temperatureAlerts"
+                        checked
+                    >
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+
+            <div class="setting-row">
+
+                <div>
+                    <h3>Daily Forecast</h3>
+
+                    <p>
+                        Receive your daily weather forecast
+                    </p>
+                </div>
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        id="dailyForecast"
+                    >
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+        </section>
+
+
+        <!-- ALERT THRESHOLDS -->
+
+        <section class="settings-card">
+
+            <div class="card-title">
+
+                <div class="title-icon red">
+                    🚨
+                </div>
+
+                <div>
+                    <h2>Alert Thresholds</h2>
+
+                    <p>
+                        Set conditions that trigger warnings
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="threshold-grid">
+
+                <div class="threshold">
+
+                    <span>🔥</span>
+
+                    <div>
+                        <label>
+                            High Temperature
+                        </label>
+
+                        <input
+                            type="number"
+                            id="highTemp"
+                            value="40"
+                        >
+
+                        <small>°C</small>
+                    </div>
+
+                </div>
+
+
+                <div class="threshold">
+
+                    <span>🌧️</span>
+
+                    <div>
+                        <label>
+                            Heavy Rain
+                        </label>
+
+                        <input
+                            type="number"
+                            id="rainThreshold"
+                            value="70"
+                        >
+
+                        <small>% probability</small>
+                    </div>
+
+                </div>
+
+
+                <div class="threshold">
+
+                    <span>💨</span>
+
+                    <div>
+                        <label>
+                            Strong Wind
+                        </label>
+
+                        <input
+                            type="number"
+                            id="windThreshold"
+                            value="50"
+                        >
+
+                        <small>km/h</small>
+                    </div>
+
+                </div>
+
+
+                <div class="threshold">
+
+                    <span>☀️</span>
+
+                    <div>
+                        <label>
+                            High UV Index
+                        </label>
+
+                        <input
+                            type="number"
+                            id="uvThreshold"
+                            value="8"
+                        >
+
+                        <small>UV index</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- APPEARANCE -->
+
+        <section class="settings-card">
+
+            <div class="card-title">
+
+                <div class="title-icon purple">
+                    🎨
+                </div>
+
+                <div>
+                    <h2>Appearance</h2>
+
+                    <p>
+                        Customize the look of the application
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="theme-options">
+
+                <label class="theme-option selected">
+
+                    <input
+                        type="radio"
+                        name="theme"
+                        value="light"
+                        checked
+                    >
+
+                    <div class="theme-preview light-preview">
+                        ☀️
+                    </div>
+
+                    <strong>Light</strong>
+
+                </label>
+
+
+                <label class="theme-option">
+
+                    <input
+                        type="radio"
+                        name="theme"
+                        value="dark"
+                    >
+
+                    <div class="theme-preview dark-preview">
+                        🌙
+                    </div>
+
+                    <strong>Dark</strong>
+
+                </label>
+
+
+                <label class="theme-option">
+
+                    <input
+                        type="radio"
+                        name="theme"
+                        value="system"
+                    >
+
+                    <div class="theme-preview system-preview">
+                        💻
+                    </div>
+
+                    <strong>System</strong>
+
+                </label>
+
+            </div>
+
+        </section>
+
+
+        <!-- ACTIONS -->
+
+        <div class="actions">
+
+            <button
+                class="cancel-btn"
+                onclick="resetSettings()"
+            >
+                Reset
+            </button>
+
+            <button
+                class="save-btn"
+                onclick="saveSettings()"
+            >
+                ✓ Save Changes
+            </button>
+
+        </div>
+
+
+        <!-- ACCOUNT -->
+
+        <section class="danger-card">
+
+            <div>
+
+                <h2>Account</h2>
+
+                <p>
+                    Manage your WeatherGuard account
+                </p>
+
+            </div>
+
+            <button
+                class="logout-btn"
+                onclick="logout()"
+            >
+                Log Out
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <script src="settings.js"></script>
+
+</body>
+
+</html>
